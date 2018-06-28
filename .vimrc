@@ -10,6 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'morhetz/gruvbox'
@@ -25,10 +26,14 @@ filetype plugin indent on    " required
 "
 set clipboard=unnamedplus
 "
-" Gruvbox Theme
+" Theme
 colorscheme gruvbox
 set background=dark "dark mode
 let g:gruvbox_contrast='hard'
+let g:airline_theme='molokai'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
 "
 "NERDTree Config
 nnoremap <F4> :NERDTreeToggle<CR>
