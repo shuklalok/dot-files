@@ -1,6 +1,7 @@
 # dot-files
 My Linux dot files
-##Process ->
+
+Process ->
 - install zsh
 - install oh-my-zsh
 - install zsh-syntax-highlighting plugin
