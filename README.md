@@ -2,13 +2,12 @@
 My Linux dot files
 
 Process ->
+- install i3-gaps
 - install zsh
 - install oh-my-zsh
-- install zsh-syntax-highlighting plugin
+- install zsh-autosuggestions, zsh-syntax-highlighting plugins
 - install vim
-- get .vimrc from dot-files repo
-- install terminator
-- download gruvbox theme for terminator
-- install fontawesome for i3status
-- copy i3 config and i3status config to ~/.config/i3/
-- done
+- install tmux
+- install rofi
+- install ~~terminator~~ gnome-terminal
+- install ~~fontawesome~~ Fira Code for i3, i3status, gnome-terminal
