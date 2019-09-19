@@ -184,8 +184,6 @@ set $fg #ebdbb2
 bar {
         status_command i3status
         position top
-        mode invisible
-        tray_output none
         colors {
                 # Whole color settings
                 background $bg
