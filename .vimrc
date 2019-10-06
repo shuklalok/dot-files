@@ -33,8 +33,10 @@ let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-"NERDTree Config
+" Italics
+highlight Comment cterm=italic
+
+" NERDTree Config
 nnoremap <F4> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-
