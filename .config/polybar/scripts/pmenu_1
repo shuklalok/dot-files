@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+## Created By Aditya Shakya
+MENU="$(echo "Lock|Logout|Reboot|Shutdown" | rofi -sep "|" -dmenu -i -p "System: " -location 3 -yoffset 46 -width 10 -padding 2 -lines 4 -theme gruvbox-dark -dpi 200 -font "Fira Code 10")"
+case "$MENU" in
+	*Lock) i3lock ;;
+        *Logout) i3-msg exit ;;
+        *Reboot) systemctl reboot ;;
+        *Shutdown) systemctl -i poweroff
+esac

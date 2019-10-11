@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+cat /home/mathews/.config/polybar/jgmenu.txt | jgmenu --simple
