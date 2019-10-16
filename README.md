@@ -2,12 +2,11 @@
 My Linux dot files
 
 Process ->
-- install i3-gaps
-- install zsh
-- install oh-my-zsh
-- install zsh-autosuggestions, zsh-syntax-highlighting plugins
-- install vim
-- install tmux
-- install rofi
-- install ~~terminator~~ gnome-terminal
-- install ~~fontawesome~~ Fira Code for i3, i3status, gnome-terminal
+- Install ubuntu mate minimal
+- install zsh, curl, git, tmux, vim, fonts-firacode, rofi, feh, lxappearance
+- install paper icon theme
+- install qogir gtk3 theme and gruvbox-gtk theme
+- install oh-my-zsh. Plugins: zsh-autosuggestions, zsh-syntax-highlighting plugins
+- install polybar
+- install jgmenu
+- install i3-gaps using https://launchpad.net/~kgilmer/+archive/ubuntu/speed-ricer
