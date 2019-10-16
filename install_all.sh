@@ -46,6 +46,10 @@ fc-cache -fv
 
 cp 4k-wallpaper-architecture-bird-s-eye-view-1482778.jpg ~/Pictures/
 
+# Themes
+# gruvbox-gtk - https://github.com/3ximus/gruvbox-gtk.git
+# qogir-light - https://github.com/vinceliuice/Qogir-theme.git
+
 # https://github.com/polybar/polybar
 
 # https://github.com/johanmalm/jgmenu/
