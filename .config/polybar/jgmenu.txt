@@ -1,12 +1,7 @@
 # checkout-menu
-Lock,^checkout(lock)
 Logout,^checkout(logout)
 Reboot,^checkout(reboot)
 Shutdown,^checkout(shutdown)
-
-# lock sub-menu
-^tag(lock)
-Sure?,i3lock-fancy -p
 
 # logout sub-menu
 ^tag(logout)

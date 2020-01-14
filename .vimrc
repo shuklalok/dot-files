@@ -1,44 +1,41 @@
+" ===================================
+" vim-plug
+" ===================================
+call plug#begin('~/.vim/plugged')
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'edkolev/tmuxline.vim'
+Plug 'morhetz/gruvbox'
+Plug 'luochen1990/rainbow'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+Plug 'airblade/vim-gitgutter'
+call plug#end()
+" ===================================
+
+" Basics
+syntax on
+filetype plugin indent on
+set nowrap
 set nocompatible
+let mapleader = ","
 
-" Start Vundle ----------------------------------------
-" -----------------------------------------------------
+" Theme
+colorscheme gruvbox
+set background=dark
+let g:airline_theme='gruvbox'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
-" Disable file type for vundle
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Themes/Interface
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'edkolev/tmuxline.vim'
-Plugin 'morhetz/gruvbox'
-
-" Utility
-Plugin 'scrooloose/nerdtree'
-Plugin 'ervandew/supertab'
-Plugin 'airblade/vim-gitgutter'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" -----------------------------------------------------
-" Stop Vundle -----------------------------------------
+" Rainbow Parentheses
+let g:rainbow_active = 1
 
 " Shared clipboard
 set clipboard=unnamedplus
 
-syntax on
-set nowrap
-
 " Show linenumbers
-set number
+set number relativenumber
 
 " Proper Split
 set splitbelow splitright
@@ -49,23 +46,22 @@ set shiftwidth=2
 set expandtab
 
 " Mouse Support
-set ttymouse=xterm2
-set mouse=a
-
-" Theme
-colorscheme gruvbox
-set background=dark
-let g:airline_theme='gruvbox'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+" set ttymouse=xterm2
+" set mouse=a
 
 " Enable highlighting of the current line
 set cursorline
+"set cursorcolumn
 
 " Italics
 highlight Comment cterm=italic
 
-"NERDTree Config
+" NERDTree Config
 nnoremap <F4> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
+let NERDTreeShowHidden = 1
+
+" GitGutter Config
+nmap <leader>p <Plug>(GitGutterPrevHunk)
+nmap <leader>v <Plug>(GitGutterPreviewHunk)
+nmap <leader>n <Plug>(GitGutterNextHunk)

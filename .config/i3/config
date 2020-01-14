@@ -66,7 +66,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -128,6 +128,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# locks i3
 bindsym $mod+Shift+l exec "i3lock-fancy -p"
 
 # resize window (you can also use the mouse for that)
@@ -155,9 +156,18 @@ bindsym $mod+r mode "resize"
 
 exec --no-startup-id vmware-user
 exec --no-startup-id /usr/lib/x86_64-linux-gnu/polkit-mate/polkit-mate-authentication-agent-1
+exec --no-startup-id /usr/bin/mate-settings-daemon
 exec --no-startup-id compton --config ~/.config/compton/compton.conf
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id feh --bg-scale /home/mathews/Pictures/4k-wallpaper-architecture-bird-s-eye-view-1482778.jpg
+exec_always --no-startup-id nitrogen --restore
+
+##############################################
+
+assign [class="Mate-terminal"] $ws1
+assign [class="Caja"] $ws2
+assign [class="Code"] $ws3
+assign [class="Brave-browser"] $ws4
+assign [class="Firefox"] $ws4
 
 ##############################################
 

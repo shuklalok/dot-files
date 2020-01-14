@@ -1,4 +1,5 @@
-position_mode = fixed
+at_pointer = 0
+# position_mode = fixed
 # menu_margin_x = 100
 menu_margin_y = 46
 menu_width = 300
