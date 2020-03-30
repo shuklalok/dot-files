@@ -51,6 +51,6 @@ set cursorline
 " Italics
 highlight Comment cterm=italic gui=italic
 
-"NERDTree Config
+" NERDTree Config
 nnoremap <F4> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI = 1
