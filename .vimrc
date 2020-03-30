@@ -6,20 +6,16 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "Plug 'edkolev/tmuxline.vim'
 Plug 'morhetz/gruvbox'
-Plug 'luochen1990/rainbow'
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ryanoasis/vim-devicons'
+Plug 'ervandew/supertab'
 Plug 'airblade/vim-gitgutter'
+Plug 'luochen1990/rainbow'
 call plug#end()
 " ===================================
 
 " Basics
 syntax on
-filetype plugin indent on
 set nowrap
-set nocompatible
-let mapleader = ","
 
 " Theme
 colorscheme gruvbox
@@ -35,9 +31,9 @@ let g:rainbow_active = 1
 set clipboard=unnamedplus
 
 " Show linenumbers
-set number relativenumber
+set number
 
-" Proper Split
+" Proper split
 set splitbelow splitright
 
 " Proper tabs
@@ -51,17 +47,10 @@ set expandtab
 
 " Enable highlighting of the current line
 set cursorline
-"set cursorcolumn
 
 " Italics
-highlight Comment cterm=italic
+highlight Comment cterm=italic gui=italic
 
-" NERDTree Config
+"NERDTree Config
 nnoremap <F4> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI = 1
-let NERDTreeShowHidden = 1
-
-" GitGutter Config
-nmap <leader>p <Plug>(GitGutterPrevHunk)
-nmap <leader>v <Plug>(GitGutterPreviewHunk)
-nmap <leader>n <Plug>(GitGutterNextHunk)
