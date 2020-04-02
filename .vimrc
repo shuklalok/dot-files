@@ -16,15 +16,13 @@ call plug#end()
 " ===================================
 
 " Basics
-syntax on
 set nowrap
-set laststatus=2
 
 " Theme
 colorscheme gruvbox
 set background=dark
 
-" lightline
+" Lightline
 let g:lightline = {
     \ 'colorscheme': 'gruvbox',
     \ 'separator': { 'left': '', 'right': '' },
@@ -35,6 +33,10 @@ let g:lightline = {
 let g:buftabline_indicators = 1
 "let g:buftabline_numbers = 2
 
+" Gitgutter
+let g:gitgutter_preview_win_floating = 1
+set updatetime = 1000
+
 " Rainbow Parentheses
 let g:rainbow_active = 1
 
@@ -43,7 +45,7 @@ let g:indentLine_char = '¦'
 
 " Find files
 set path=**
-set wildmenu
+"set wildmenu
 
 " Buffers
 set hidden
@@ -82,6 +84,16 @@ highlight Comment cterm=italic gui=italic
 
 " Search
 set nohlsearch
+
+" Better diff colors
+if &diff
+    syntax off
+endif
+
+highlight DiffAdd    cterm=bold ctermfg=darkgreen ctermbg=bg
+highlight DiffDelete cterm=bold ctermfg=darkred   ctermbg=bg
+highlight DiffChange cterm=bold ctermfg=yellow    ctermbg=bg
+highlight DiffText   cterm=bold ctermfg=blue      ctermbg=bg
 
 " NERDTree Config
 nnoremap <F4> :NERDTreeToggle<CR>
