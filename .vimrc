@@ -2,11 +2,11 @@
 " vim-plug
 " ===================================
 call plug#begin('~/.vim/plugged')
+Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
-Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdtree'
-Plug 'ervandew/supertab'
+Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
@@ -31,11 +31,18 @@ let g:lightline = {
 
 " Buftabline
 let g:buftabline_indicators = 1
-"let g:buftabline_numbers = 2
+let g:buftabline_numbers = 1
+
+" NERDTree
+nnoremap <silent> <F4> :NERDTreeToggle<CR>
+let NERDTreeMinimalUI = 1
+
+" Tagbar
+nnoremap <silent> <F8> :TagbarToggle<CR>
 
 " Gitgutter
 let g:gitgutter_preview_win_floating = 1
-set updatetime = 1000
+set updatetime=1000
 
 " Rainbow Parentheses
 let g:rainbow_active = 1
@@ -49,8 +56,8 @@ set path=**
 
 " Buffers
 set hidden
-nnoremap <C-N> :bnext<CR>
-nnoremap <C-P> :bprev<CR>
+nnoremap <silent> <C-N> :bnext<CR>
+nnoremap <silent> <C-P> :bprev<CR>
 
 " Shared clipboard
 set clipboard=unnamedplus
@@ -69,10 +76,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" Mouse Support
-" set ttymouse=xterm2
-" set mouse=a
-
 " Enable highlighting of the current line
 set cursorline
 
@@ -86,16 +89,8 @@ highlight Comment cterm=italic gui=italic
 set nohlsearch
 
 " Better diff colors
-if &diff
-    syntax off
-endif
-
-highlight DiffAdd    cterm=bold ctermfg=darkgreen ctermbg=bg
-highlight DiffDelete cterm=bold ctermfg=darkred   ctermbg=bg
-highlight DiffChange cterm=bold ctermfg=yellow    ctermbg=bg
-highlight DiffText   cterm=bold ctermfg=blue      ctermbg=bg
-
-" NERDTree Config
-nnoremap <F4> :NERDTreeToggle<CR>
-let NERDTreeMinimalUI = 1
+highlight DiffAdd    cterm=reverse ctermfg=darkgreen ctermbg=bg
+highlight DiffDelete cterm=reverse ctermfg=darkred   ctermbg=bg
+highlight DiffChange cterm=reverse ctermfg=yellow    ctermbg=bg
+highlight DiffText   cterm=reverse ctermfg=blue      ctermbg=bg
 
