@@ -7,6 +7,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
+Plug 'junegunn/fzf', { 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
@@ -34,7 +36,8 @@ let g:buftabline_indicators = 1
 let g:buftabline_numbers = 1
 
 " NERDTree
-nnoremap <silent> <F4> :NERDTreeToggle<CR>
+nnoremap <silent> <leader>e :NERDTreeToggle<CR>
+nnoremap <silent> <leader>f :NERDTreeFind<CR>
 let NERDTreeMinimalUI = 1
 
 " Tagbar
@@ -87,10 +90,12 @@ highlight Comment cterm=italic gui=italic
 
 " Search
 set nohlsearch
+set incsearch
+set ignorecase smartcase
 
 " Better diff colors
 highlight DiffAdd    cterm=reverse ctermfg=darkgreen ctermbg=bg
-highlight DiffDelete cterm=reverse ctermfg=darkred   ctermbg=bg
+highlight DiffDelete cterm=reverse ctermfg=red       ctermbg=bg
 highlight DiffChange cterm=reverse ctermfg=yellow    ctermbg=bg
 highlight DiffText   cterm=reverse ctermfg=blue      ctermbg=bg
 
