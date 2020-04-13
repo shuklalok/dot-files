@@ -19,6 +19,8 @@ call plug#end()
 
 " Basics
 set nowrap
+set wildmenu
+set laststatus=2
 
 " Theme
 colorscheme gruvbox
@@ -36,12 +38,19 @@ let g:buftabline_indicators = 1
 let g:buftabline_numbers = 1
 
 " NERDTree
-nnoremap <silent> <leader>e :NERDTreeToggle<CR>
-nnoremap <silent> <leader>f :NERDTreeFind<CR>
+nnoremap <silent> <Leader>e :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 let NERDTreeMinimalUI = 1
 
 " Tagbar
 nnoremap <silent> <F8> :TagbarToggle<CR>
+
+" FZF
+let g:fzf_layout = { 'down': '~25%' }
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>c :Commands<CR>
+nnoremap <silent> <Leader>r :Rg<CR>
 
 " Gitgutter
 let g:gitgutter_preview_win_floating = 1
@@ -55,12 +64,12 @@ let g:indentLine_char = '¦'
 
 " Find files
 set path=**
-"set wildmenu
 
 " Buffers
 set hidden
-nnoremap <silent> <C-N> :bnext<CR>
-nnoremap <silent> <C-P> :bprev<CR>
+nnoremap <silent> <Leader>w :bd<CR>
+nnoremap <silent> <Leader>n :bnext<CR>
+nnoremap <silent> <Leader>p :bprev<CR>
 
 " Shared clipboard
 set clipboard=unnamedplus
@@ -84,6 +93,7 @@ set cursorline
 
 " Set ruler
 set colorcolumn=80,100,120
+highlight ColorColumn ctermbg=236
 
 " Italics
 highlight Comment cterm=italic gui=italic
