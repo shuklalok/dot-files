@@ -21,16 +21,16 @@ call plug#end()
 " ==============================================
 
 " Basics
+let mapleader=";"
 set laststatus=2
 set nowrap
 set path=**
 set signcolumn=yes
 set updatetime=300
 set wildmenu
+inoremap jj <Esc>
 noremap <silent> k gk
 noremap <silent> j gj
-noremap <silent> 0 g0
-noremap <silent> $ g$
 
 " Cursor
 let &t_SI = "\<esc>[6 q"
@@ -56,29 +56,10 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_extensions = ['branch', 'tabline', 'hunks']
 
 " NERDTree
-nnoremap <silent> <Leader>e :NERDTreeToggle<CR><C-w>l:call SyncTree()<CR>
-let NERDTreeMinimalUI = 1
-
-" Auto open NERDTree
-autocmd VimEnter * if argc() == 0 | NERDTree | endif
-autocmd VimEnter * wincmd w
-
-" Check if NERDTree is open or active
-function! IsNERDTreeOpen()
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
-" Call NERDTreeFind if NERDTree is active, current window contains a modifiable
-" file and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
-
-" Highlight currently open buffer in NERDTree
-autocmd BufRead * call SyncTree()
+nnoremap <silent> <Leader>e :NERDTreeToggle<CR><C-w>l
+nnoremap <silent> <Leader>v :NERDTreeFind<CR><C-w>l
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeShowHidden = 1
 
 " Tagbar
 nnoremap <silent> <F8> :TagbarToggle<CR>
@@ -98,8 +79,6 @@ let g:indentLine_char = '¦'
 
 " Buffers
 set hidden
-nnoremap <silent> <Leader>n :bnext<CR>:call SyncTree()<CR>
-nnoremap <silent> <Leader>p :bprev<CR>:call SyncTree()<CR>
 nnoremap <silent> <Leader>w :bd<CR>
 
 " Shared clipboard
@@ -128,6 +107,9 @@ highlight ColorColumn ctermbg=236
 
 " Italics
 highlight Comment cterm=italic
+
+" Visual mode
+highlight Visual cterm=NONE ctermfg=bg ctermbg=yellow
 
 " Search
 set nohlsearch
