@@ -6,7 +6,6 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
-Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
@@ -22,13 +21,16 @@ call plug#end()
 
 " Basics
 let mapleader=";"
+set completeopt=menuone,longest
 set laststatus=2
 set nowrap
 set path=**
+set shortmess+=c
 set signcolumn=yes
-set updatetime=300
+set noswapfile
+set updatetime=50
 set wildmenu
-inoremap jj <Esc>
+inoremap jj <Esc><Esc>
 noremap <silent> k gk
 noremap <silent> j gj
 
@@ -61,14 +63,11 @@ nnoremap <silent> <Leader>v :NERDTreeFind<CR><C-w>l
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeShowHidden = 1
 
-" Tagbar
-nnoremap <silent> <F8> :TagbarToggle<CR>
-
 " FZF
 let g:fzf_layout = { 'down': '~25%' }
 nnoremap <silent> <Leader>b :Buffers<CR>
-nnoremap <silent> <Leader>c :Commands<CR>
-nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <F1> :Commands<CR>
+nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <Leader>r :Rg<CR>
 
 " Rainbow Parentheses
