@@ -3,8 +3,7 @@
 " ==============================================
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'ap/vim-buftabline'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -47,19 +46,13 @@ set ttymouse=xterm2
 colorscheme gruvbox
 set background=dark
 
-" Airline
-let g:airline_theme='powerlineish'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_extensions = ['branch', 'tabline', 'hunks']
+" Buftabline
+let g:buftabline_show = 1
+let g:buftabline_indicators = 1
 
 " NERDTree
-nnoremap <silent> <Leader>e :NERDTreeToggle<CR><C-w>l
-nnoremap <silent> <Leader>v :NERDTreeFind<CR><C-w>l
+nnoremap <silent> <Leader>e :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeShowHidden = 1
 
@@ -111,9 +104,10 @@ highlight Comment cterm=italic
 highlight Visual cterm=NONE ctermfg=bg ctermbg=yellow
 
 " Search
-set nohlsearch
+set hlsearch
 set incsearch
 set ignorecase smartcase
+nnoremap <silent> <F5> :nohl<CR>
 
 " Better diff colors
 highlight DiffAdd    cterm=reverse ctermfg=darkgreen ctermbg=bg
