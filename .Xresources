@@ -50,11 +50,11 @@ URxvt.scrollBar: false
 URxvt.urgentOnBell: true
 URxvt.depth: 24
 URxvt.iso14755: false
-URxvt.perl-ext-common: selection-to-clipboard
+URxvt.perl-ext-common: default,selection-to-clipboard
 ! ----------------------------------------------------
 !! Common keybindings for copy-pasting
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+!URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 ! ----------------------------------------------------
 !! Common keybindings for navigation
 URxvt.keysym.Control-Up:    \033[1;5A
