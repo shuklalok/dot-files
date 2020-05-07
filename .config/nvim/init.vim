@@ -12,7 +12,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'luochen1990/rainbow'
-Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/AutoComplPop'
 " ==============================================
@@ -24,27 +23,19 @@ let mapleader=";"
 set completeopt=menuone,longest
 set diffopt+=vertical
 set hidden
-set laststatus=2
 set noswapfile
-set nowrap
 set path=**
 set shortmess+=c
 set signcolumn=yes
 set updatetime=50
-set wildmenu
 inoremap jj <Esc><Esc>
 noremap <silent> k gk
 noremap <silent> j gj
+nnoremap <silent> <M-z> :set wrap!<CR>
 nnoremap <silent> <F4> :setlocal spell! spelllang=en_us<CR>
-
-" Cursor
-let &t_SI = "\<esc>[6 q"
-let &t_EI = "\<esc>[1 q"
-let &t_SR = "\<esc>[2 q"
 
 " Mouse
 set mouse=a
-set ttymouse=xterm2
 
 " Theme
 colorscheme gruvbox
@@ -55,23 +46,19 @@ let g:buftabline_show = 1
 let g:buftabline_indicators = 1
 
 " NERDTree
-nnoremap <silent> <Leader>e :NERDTreeToggle<CR>
-nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+nnoremap <silent> <M-e> :NERDTreeToggle<CR>
+nnoremap <silent> <M-v> :NERDTreeFind<CR>
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeShowHidden = 1
 
 " FZF
 let g:fzf_layout = { 'down': '~25%' }
-nnoremap <silent> <Leader>b :Buffers<CR>
-nnoremap <silent> <F1> :Commands<CR>
+nnoremap <silent> <M-b> :Buffers<CR>
 nnoremap <silent> <C-p> :Files<CR>
-nnoremap <silent> <Leader>r :Rg<CR>
+nnoremap <silent> <M-f> :Rg<CR>
 
 " Rainbow Parentheses
 let g:rainbow_active = 1
-
-" Indent lines
-let g:indentLine_char = '¦'
 
 " Shared clipboard
 set clipboard=unnamedplus
@@ -90,9 +77,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" Enable highlighting of the current line
-" set cursorline
-
 " Set ruler
 set colorcolumn=80,100,120
 highlight ColorColumn ctermbg=236
@@ -109,7 +93,7 @@ highlight SpellBad cterm=underline ctermfg=red
 " Search
 set hlsearch
 set incsearch
-set ignorecase smartcase
+set ignorecase
 nnoremap <silent> <F5> :nohl<CR>
 
 " Better diff colors
