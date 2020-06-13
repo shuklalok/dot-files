@@ -1,0 +1,40 @@
+{
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.fontFamily": "'Fira Code', monospace",
+    "editor.fontLigatures": true,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.rulers": [
+        80,
+        100,
+        120
+    ],
+    "editor.smoothScrolling": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "indentRainbow.colors": [
+        "rgba(60, 56, 54, 0.3)",
+        "rgba(80, 73, 69, 0.3)",
+        "rgba(102,92, 84, 0.3)",
+        "rgba(124,111,100,0.3)",
+        "rgba(146,131,116,0.3)",
+        "rgba(168,153,132,0.3)",
+        "rgba(189,174,147,0.3)",
+        "rgba(213,196,161,0.3)",
+        "rgba(235,219,178,0.3)"
+    ],
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "window.customMenuBarAltFocus": false,
+    "window.enableMenuBarMnemonics": false,
+    "window.newWindowDimensions": "inherit",
+    "window.titleBarStyle": "custom",
+    "workbench.activityBar.visible": false,
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.startupEditor": "none",
+    "workbench.tree.indent": 15,
+    "workbench.tree.renderIndentGuides": "always"
+}
