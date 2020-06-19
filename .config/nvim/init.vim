@@ -19,7 +19,6 @@ call plug#end()
 " ==============================================
 
 " Basics
-let mapleader=";"
 set completeopt=menuone,longest
 set diffopt+=vertical
 set hidden
@@ -29,10 +28,9 @@ set shortmess+=c
 set signcolumn=yes
 set updatetime=50
 inoremap jj <Esc><Esc>
-noremap <silent> k gk
-noremap <silent> j gj
 nnoremap <silent> <M-z> :set wrap!<CR>
 nnoremap <silent> <F4> :setlocal spell! spelllang=en_us<CR>
+nnoremap <silent> <M-x> :e ~/.config/nvim/init.vim<CR>
 
 " Mouse
 set mouse=a
@@ -57,6 +55,9 @@ nnoremap <silent> <M-b> :Buffers<CR>
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <M-f> :Rg<CR>
 
+" vim-fugitive
+nnoremap <silent> <M-g> :Gstatus<CR>
+
 " Rainbow Parentheses
 let g:rainbow_active = 1
 
@@ -64,7 +65,7 @@ let g:rainbow_active = 1
 set clipboard=unnamedplus
 
 " Show linenumbers
-set number
+set number relativenumber
 
 " Show hidden characters
 set list listchars=tab:>-,trail:·,extends:>,precedes:<,eol:↵,nbsp:˽
@@ -91,10 +92,8 @@ highlight Visual cterm=NONE ctermfg=bg ctermbg=yellow
 highlight SpellBad cterm=underline ctermfg=red
 
 " Search
-set hlsearch
-set incsearch
+set nohlsearch
 set ignorecase
-nnoremap <silent> <F5> :nohl<CR>
 
 " Better diff colors
 highlight DiffAdd    cterm=reverse ctermfg=darkgreen ctermbg=bg
