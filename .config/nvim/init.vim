@@ -9,12 +9,46 @@ Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+"-----------------------------------------------------------------------------
+" gcc to comment out a line (takes a count) - like 3gcc
+" gc to comment out the target of a motion (h,j,k,l,^,$,H,M,L etc.)
+"     for example, gcap to comment out a paragraph, code block
+"                  (BONUS - cut a code block with dL)
+"                  gc4j - comment this plus 4 lines below
+" gc in visual mode to comment out the selection,
+" gc in operator pending mode to target a comment.
+" As a command, either with a range like :7,17Commentary
+" or as part of a :global invocation like with :g/TODO/Commentary.
 Plug 'tpope/vim-commentary'
+"-----------------------------------------------------------------------------
+" ysiw"eysiw}eysiw{ - to enclose var in jinja as in Ansible.
+" ds{ds}ds" is to reverse
 Plug 'tpope/vim-surround'
+"-----------------------------------------------------------------------------
+" Rainbow colors for nested braces, Parentheses
 Plug 'luochen1990/rainbow'
+"-----------------------------------------------------------------------------
+" [e current line exchange with above
+" ]e current line exchange with below
+" [f open in buffer the alphabetically prev file in current directory
+" ]f open in buffer the alphabetically next file in current directory
+" Toggles -
+"           yos - spelling
+"           yon - number
+"           yor - relativenumber
+"           yoh - highlight search
+"           yoc - cursorline
+"           you - cursocolumn
+"           yox - crosshair
+"           yow - wrap
+"           yob - dark Off, light On
+" BEST FOR SHORTCUTs
 Plug 'tpope/vim-unimpaired'
+"-----------------------------------------------------------------------------
+" Just write the file :w!
 Plug 'scrooloose/syntastic'
-Plug 'vim-scripts/AutoComplPop'
+"-----------------------------------------------------------------------------
+" Plug 'vim-scripts/AutoComplPop'
 " Language specifics
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips'
@@ -23,7 +57,6 @@ Plug 'phenomenes/ansible-snippets'
 Plug 'machakann/vim-highlightedyank'
 " Atom One Dark theme.
 Plug 'joshdick/onedark.vim'
-Plug 'morhetz/gruvbox'
 " Better display unwanted whitespace.
 Plug 'ntpeters/vim-better-whitespace'
 " Lightline
@@ -55,7 +88,8 @@ inoremap jj <Esc><Esc>
 nnoremap <silent> <M-z> :set wrap!<CR>
 nnoremap <silent> <F4> :setlocal spell! spelllang=en_us<CR>
 nnoremap <silent> <M-x> :e ~/.config/nvim/init.vim<CR>
-map <Leader>sv :source ~/.config/nvim/init.vim<CR>
+map <silent> <M-s> :source ~/.config/nvim/init.vim<CR>
+" map <Leader>sv :source ~/.config/nvim/init.vim<CR>
 
 "-----------------------------------------------------------------------------
 " Color settings
@@ -81,7 +115,7 @@ let g:lightline = { 'colorscheme': 'onedark' }
 " set background=dark
 
 " Buftabline
-let g:buftabline_show = 1
+let g:buftabline_show = 2
 let g:buftabline_indicators = 1
 
 " NERDTree
@@ -91,10 +125,10 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeShowHidden = 1
 
 " FZF
-let g:fzf_layout = { 'down': '~25%' }
-nnoremap <silent> <M-b> :Buffers<CR>
-nnoremap <silent> <C-p> :Files<CR>
-nnoremap <silent> <M-f> :Rg<CR>
+" let g:fzf_layout = { 'down': '~25%' }
+" nnoremap <silent> <M-b> :Buffers<CR>
+" nnoremap <silent> <C-p> :Files<CR>
+" nnoremap <silent> <M-f> :Rg<CR>
 
 " vim-fugitive
 nnoremap <silent> <M-g> :Gstatus<CR>
@@ -117,7 +151,6 @@ set splitbelow splitright
 " Proper tabs
 set expandtab smarttab
 set shiftwidth=2
-set showtabline=2
 set softtabstop=2
 set tabstop=2
 
@@ -144,8 +177,12 @@ highlight DiffDelete cterm=reverse ctermfg=red       ctermbg=bg
 highlight DiffChange cterm=reverse ctermfg=yellow    ctermbg=bg
 highlight DiffText   cterm=reverse ctermfg=blue      ctermbg=bg
 "-----------------------------------------------------------------------------
+" SirVer/ultisnips
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"-----------------------------------------------------------------------------
 " Convert the selected text's title case using the external tcc script.
-"   Requires: https://github.com/nickjj/title-case-converter
+"   Requires https://github.com/nickjj/title-case-converter
 vnoremap <Leader>hc c<C-r>=system('tcc', getreg('"'))[:-2]<CR>
 
 " Navigate the complete menu items like CTRL+n / CTRL+p would.
@@ -167,11 +204,9 @@ command! -bang -nargs=* Rg
       \ fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 nnoremap <silent> <M-b> :Buffers<CR>
 nnoremap <silent> <C-p> :Files<CR>
-" -----
 nnoremap <silent> <M-f> :Rg<CR>
-command! -bang -nargs=* Rg
-      \ call fzf#vim#grep('rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-      \ fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
+" Load Ctrl-P faster
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 "-----------------------------------------------------------------------------
 " Syntax check for yaml files
 let g:syntastic_yaml_checkers = ['yamllint']
@@ -179,11 +214,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-nnoremap <silent> <M-a> :SyntasticCheck<CR>
-"map <leader>a :SyntasticCheck<CR>
-"map <leader>d :SyntasticReset<CR>
-"map <leader>e :lnext<CR>
-"map <leader>r :lprev<CR>
 "-----------------------------------------------------------------------------
 " Highlight yank text
 augroup highlight_yank
@@ -196,8 +226,6 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 "-----------------------------------------------------------------------------
 " Toggle line number relative/absolute
 nmap <F6> :set invrelativenumber<CR>
-map <Leader>nn :se nonumber<CR>
-map <Leader>yn :se number<CR>
 "-----------------------------------------------------------------------------
 " Toggle visually showing all whitespace characters.
 noremap <F7> :set list!<CR>
