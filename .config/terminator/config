@@ -1,0 +1,29 @@
+[global_config]
+  dbus = False
+[keybindings]
+[profiles]
+  [[default]]
+    background_color = "#282828"
+    cursor_color = "#aaaaaa"
+    font = Fira Code 10
+    foreground_color = "#ebdbb2"
+    use_system_font = False
+  [[one_dark]]
+    background_color = "#1e2127"
+    cursor_color = "#676c76"
+    font = Fira Code 14
+    foreground_color = "#5c6370"
+    show_titlebar = False
+    palette = "#000000:#e06c75:#98c379:#d19a66:#61afef:#c678dd:#56b6c2:#abb2bf:#5c6370:#e06c75:#98c379:#d19a66:#61afef:#c678dd:#56b6c2:#fffefe"
+    use_system_font = False
+    copy_on_selection = True
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = one_dark
+[plugins]
