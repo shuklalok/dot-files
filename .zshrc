@@ -111,3 +111,27 @@ export EDITOR=vim
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 autoload -Uz compinit
 compinit
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+export LESS=-JMQRiFX
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export PATH=/usr/local/lib/nodejs/node-v14.16.0-linux-x64/bin:$PATH
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+# GO settings
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
+export GOPATH=/home/shukla20/golib
+export PATH=$PATH:$GOPATH/bin
+# Composit GOPATH
+export GOPATH=$GOPATH:/home/shukla20/code
